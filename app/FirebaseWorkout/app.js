@@ -2,8 +2,9 @@
   'use strict';
 
   angular.module('grobim.firebaseWorkout', [
-    'ui.router'
+    'ui.router',
 
+    'grobim.firebaseWorkout.followingTheGuide'
   ]);
 
 })();

@@ -1,0 +1,33 @@
+<h3>Save (id provided)</h3>
+<label>Nickname : </label>
+<input ng-model="saveCtrl.nickname"></input>
+<br />
+<label>Date : </label>
+<input ng-model="saveCtrl.date"></input>
+<br />
+<label>Fullname : </label>
+<input ng-model="saveCtrl.fullname"></input>
+<br />
+<button ng-click="saveCtrl.saveUser()">Save</button>
+
+<br /><br />
+
+<h3>Update (used Grobim, Haguenon)</h3>
+<label>Nickname : </label>
+<input ng-model="saveCtrl.nickname2"></input>
+<br />
+<label>Update nom : </label>
+<input ng-model="saveCtrl.fullname2"></input>
+<br />
+<button ng-click="saveCtrl.updateUser()">Update</button>
+
+<br /><br />
+
+<h3>Add post</h3>
+<label>Nickname : </label>
+<input ng-model="saveCtrl.nickname3"></input>
+<br />
+<label>Post : </label>
+<input ng-model="saveCtrl.fullname3"></input>
+<br />
+<button ng-click="saveCtrl.addPost()">Update</button>

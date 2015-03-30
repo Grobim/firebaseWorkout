@@ -10,6 +10,7 @@ module.exports = function (grunt) {
         files: {
           '<%= assetsDir %>/index.html': ['bower.json',
             '<%= assetsDir %>/**/*.module.js',
+            '<%= assetsDir %>/**/app.js',
             '<%= assetsDir %>/**/*.js', '<%= assetsDir %>/**/*.css',
             '<%= assetsDir %>/app.js']
         }

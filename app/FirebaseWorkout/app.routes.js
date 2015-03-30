@@ -1,14 +1,14 @@
 (function () {
   'use strict';
 
-  angular.module('slv.app').config(['$stateProvider', '$urlRouterProvider', appRoutes]);
+  angular.module('grobim.firebaseWorkout').config(['$stateProvider', '$urlRouterProvider', appRoutes]);
 
   function appRoutes($stateProvider, $urlRouterProvider) {
 
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: 'app/slv/index.tpl.html',
+        templateUrl: 'app/FirebaseWorkout/index.tpl.html',
         controller: 'IndexCtrl',
         controllerAs: 'indexCtrl'
       });
