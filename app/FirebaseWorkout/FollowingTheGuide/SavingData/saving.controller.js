@@ -1,9 +1,9 @@
 (function () {
   'use strict';
 
-  angular.module('grobim.firebaseWorkout.followingTheGuide').controller('SavingDataCtrl', [SavingDataCtrl]);
+  angular.module('grobim.firebaseWorkout.followingTheGuide').controller('SavingDataCtrl', ['$timeout', SavingDataCtrl]);
 
-  function SavingDataCtrl() {
+  function SavingDataCtrl($timeout) {
     var ref = new Firebase('https://boiling-fire-3060.firebaseio.com/web/saving-data/fireblog');
     var usersRef = ref.child('users');
     var postsRef = ref.child('posts');
@@ -16,15 +16,17 @@
     _this.addPost = addPost;
 
     function saveUser() {
-      usersRef.child(_this.nickname).set({
-        date: _this.date,
-        fullname: _this.fullname
-      }, function(error) {
-        if (error) {
-          console.error('Error : ' + error);
-        } else {
-          console.log('Added');
-        }
+      $timeout(function() {
+        usersRef.child(_this.nickname).set({
+          date: _this.date,
+          fullname: _this.fullname
+        }, function(error) {
+          if (error) {
+            console.error('Error : ' + error);
+          } else {
+            console.log('Coucou');
+          }
+        });
       });
     }
 

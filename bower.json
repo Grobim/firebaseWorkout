@@ -6,7 +6,8 @@
 
     "angular-ui-router": "~0.2.13",
     
-    "firebase": "~2.2.3"
+    "firebase": "~2.2.3",
+    "angularfire": "1.0.0"
   },
   "devDependencies": {}
 }
