@@ -1,9 +1,26 @@
-Hi {{1 - 1}}
-<br />
-{{fireArrayCtrl.hello}}
-<br />
-<ul>
-  <li ng-repeat="message in fireArrayCtrl.messages">
-    {{message | json}}
-  </li>
-</ul>
+<div ng-if="fireArrayCtrl.isLoaded">
+  <label>Nom : </label>
+  <input type="text" ng-model="fireArrayCtrl.newMessage.author"></input>
+  <br />
+  <label>Message : </label>
+  <input type="text" ng-model="fireArrayCtrl.newMessage.title"></input>
+  <br />
+  <button ng-click="fireArrayCtrl.sendMessage()">Envoyer</button>
+  <br />
+  <table ng-if="fireArrayCtrl.messagesExists()">
+    <tr>
+      <th>Nom</th>
+      <th>Titre</th>
+      <th>Modifier</th>
+      <th>Supprimer</th>
+      <th>Supprimer (from id)</th>
+    </tr>
+    <tr ng-repeat="message in fireArrayCtrl.messages">
+      <td><input type="text" ng-model="message.author"></input></td>
+      <td><input type="text" ng-model="message.title"></input></td>
+      <td><button ng-click="fireArrayCtrl.saveMessage(message)">Modifier</button></td>
+      <td><button ng-click="fireArrayCtrl.deleteMessage(message)">Delete</button></td>
+      <td><button ng-click="fireArrayCtrl.deleteMessageFromId(message.$id)">Delete from id</button></td>
+    </tr>
+  </table>
+</div>

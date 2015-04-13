@@ -1,0 +1,12 @@
+<div>
+  <form>
+    <h1>New Group</h1>
+    <label>Group title : </label>
+    <input type="text" ng-model="structureCtrl.newGroup.title"></input>
+    <br />
+    <label>Group description : </label>
+    <input type="text" ng-model="structureCtrl.newGroup.description"></input>
+    <br />
+    <input type="submit" ng-click="structureCtrl.createGroup($event)"></input>
+  </form>
+</div>
