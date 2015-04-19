@@ -2,9 +2,9 @@
   'use strict';
 
   angular.module('grobim.firebaseWorkout.withAngularFire.manageUsers')
-      .controller('ChangePasswordController', ['$timeout', '$window', '$state', 'Auth', ChangePasswordController]);
+      .controller('ChangePasswordController', ['$state', 'Auth', ChangePasswordController]);
 
-  function ChangePasswordController($timeout, $window, $state, Auth) {
+  function ChangePasswordController($state, Auth) {
     var _this = this,
         authData = Auth.$getAuth();
 

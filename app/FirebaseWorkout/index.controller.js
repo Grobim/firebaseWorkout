@@ -2,9 +2,9 @@
   'use strict';
 
   angular.module('grobim.firebaseWorkout')
-      .controller('IndexCtrl', ['$state', 'SessionService', 'Auth', IndexCtrl]);
+      .controller('IndexCtrl', ['SessionService', 'Auth', IndexCtrl]);
 
-  function IndexCtrl($state, SessionService, Auth) {
+  function IndexCtrl(SessionService, Auth) {
     var _this = this;
     
     _this.authUser = SessionService.authUser();
