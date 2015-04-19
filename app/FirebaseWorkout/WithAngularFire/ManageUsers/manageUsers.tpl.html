@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th>Nickname</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Email</th>
+    <th>Action</th>
+  </tr>
+  <tr ng-repeat="user in mngUsersCtrl.users">
+    <td>{{user.nickname}}</td>
+    <td>{{user.firstname}}</td>
+    <td>{{user.lastname}}</td>
+    <td>{{user.email}}</td>
+    <td><button ng-if="mngUsersCtrl.isAuthUser(user)" ng-click="mngUsersCtrl.changePassword()">Change Password</button></td>
+  </tr>
+</table>

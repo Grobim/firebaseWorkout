@@ -6,14 +6,15 @@
   function appRoutes($stateProvider, $urlRouterProvider) {
 
     $stateProvider
-      .state('home', {
-        url: '/',
-        templateUrl: 'app/FirebaseWorkout/index.tpl.html',
-        controller: 'IndexCtrl',
-        controllerAs: 'indexCtrl'
-      });
+        .state('home', {
+          url: '/',
+          templateUrl: 'app/FirebaseWorkout/index.tpl.html',
+          controller: 'IndexCtrl',
+          controllerAs: 'indexCtrl'
+        })
+    ;
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/login');
 
   }
 

@@ -12,7 +12,14 @@
 
 
     _this.createGroup = createGroup;
+    _this.createUser = createUser;
 
+
+    groupsRef.on('value', function(snapshot) {
+      $timeout(function() {
+        _this.groups = snapshot.val();
+      });
+    });
 
     function createGroup(event) {
       event.preventDefault();
@@ -23,6 +30,21 @@
         if (!error) {
           $timeout(function () {
             _this.newGroup = {};
+          });
+        }
+      });
+    }
+
+    function createUser(event) {
+      event.preventDefault();
+
+      userRef.child(_this.newUser.nickname).set({
+        fullname : _this.newUser.fullname,
+        userGroups : _this.newUser.userGroups
+      }, function (error) {
+        if (!error) {
+          $timeout(function() {
+            _this.newUser = {};
           });
         }
       });

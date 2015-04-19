@@ -1,5 +1,8 @@
-{{indexCtrl.angular}}
+<span>Hello {{indexCtrl.userData.firstname}} '{{indexCtrl.userData.nickname}}' {{indexCtrl.userData.lastname}}</span>
 <br />
 <a ui-sref="following">Following the guide</a>
 <br />
 <a ui-sref="withAngularFire">With angular fire</a>
+<br />
+<br />
+<button ng-click="indexCtrl.unauth()">Unauth</button>

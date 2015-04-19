@@ -9,4 +9,21 @@
     <br />
     <input type="submit" ng-click="structureCtrl.createGroup($event)"></input>
   </form>
+  <form>
+    <h1>New User</h1>
+    <label>User nickname : </label>
+    <input type="text" ng-model="structureCtrl.newUser.nickname"></input>
+    <br />
+    <label>User Full name : </label>
+    <input type="text" ng-model="structureCtrl.newUser.fullname"></input>
+    <br />
+    <label>Groups : </label>
+    <div ng-repeat="(key, group) in structureCtrl.groups">
+        <label>{{key}} : </label>
+        <input type="checkbox" ng-model="structureCtrl.newUser.userGroups[key]"></input>
+    </div>
+    <br />
+    {{structureCtrl.newUser}}
+    <input type="submit" ng-click="structureCtrl.createUser($event)"></input>
+  </form>
 </div>

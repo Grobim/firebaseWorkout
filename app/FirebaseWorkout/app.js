@@ -5,6 +5,7 @@
     'ui.router',
     'firebase',
 
+    'grobim.firebaseWorkout.login',
     'grobim.firebaseWorkout.followingTheGuide',
     'grobim.firebaseWorkout.withAngularFire'
   ]);
