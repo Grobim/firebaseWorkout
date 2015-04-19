@@ -2,25 +2,20 @@
   'use strict';
 
   angular.module('grobim.firebaseWorkout.withAngularFire.manageUsers')
-      .controller('ManageUsersController', ['$state', 'Users', 'Auth', FireObjectController]);
+      .controller('ManageUsersController', ['$state', 'Users', 'SessionService', ManageUsersController]);
 
-  function FireObjectController($state, Users, Auth) {
+  function ManageUsersController($state, Users, SessionService) {
 
     var _this = this;
-
-    _this.hello = 'Coucou';
 
     _this.users = new Users();
 
     _this.isAuthUser = isAuthUser;
-    _this.changePassword = changePassword;
+
+    _this.session = SessionService.session;
 
     function isAuthUser(user) {
-      return Auth.$getAuth().uid === user.$id;
-    }
-
-    function changePassword() {
-      $state.go('withAngularFire.changePassword');
+      return SessionService.authUser().$id === user.$id;
     }
 
   }

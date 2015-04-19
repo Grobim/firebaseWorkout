@@ -1,17 +1,17 @@
-(function () {
+(function() {
   'use strict';
 
-  angular.module('grobim.firebaseWorkout').controller('IndexCtrl', ['$state', 'Auth', 'User', IndexCtrl]);
+  angular.module('grobim.firebaseWorkout')
+      .controller('IndexCtrl', ['$state', 'SessionService', 'Auth', IndexCtrl]);
 
-  function IndexCtrl($state, Auth, User) {
+  function IndexCtrl($state, SessionService, Auth) {
     var _this = this;
     
-    _this.userData = new User(Auth.$getAuth().uid);
+    _this.authUser = SessionService.authUser();
 
     _this.unauth = unauth;
 
     function unauth() {
-      _this.userData.$destroy();
       Auth.$unauth();
     }
   }

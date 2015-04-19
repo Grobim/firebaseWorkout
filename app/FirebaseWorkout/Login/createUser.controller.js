@@ -1,9 +1,10 @@
 (function() {
   'use strict';
 
-  angular.module('grobim.firebaseWorkout.login').controller('CreateUserController', ['$state', 'Auth', 'User', CreateUserController]);
+  angular.module('grobim.firebaseWorkout.login')
+      .controller('CreateUserController', ['$state', '$window', '$timeout', 'Auth', CreateUserController]);
 
-  function CreateUserController($state, Auth, User) {
+  function CreateUserController($state, $window, $timeout, Auth) {
     var _this = this;
 
     _this.create = create;
@@ -22,17 +23,23 @@
           password : _this.newUser.password
         }).then(function(authData) {
 
-          var userRef = new User(authData.uid);
-          userRef.firstname = _this.newUser.firstname;
-          userRef.lastname = _this.newUser.lastname;
-          userRef.nickname = _this.newUser.nickname;
-          userRef.email = _this.newUser.email;
-          userRef.$save();
+          var userRef = new $window.Firebase('https://boiling-fire-3060.firebaseio.com/users').child(authData.uid);
+          userRef.set({
+            firstname : _this.newUser.firstname,
+            lastname  : _this.newUser.lastname,
+            nickname  : _this.newUser.nickname
+          }, function(error) {
+            $timeout(function() {
 
-          userRef.$destroy();
+              _this.dataLoading = false;
+              if (error) {
+                throw error;
+              } else {
+                $state.go('home');
+              }
 
-          $state.go('home');
-
+            });
+          });
         });
 
       }).catch(function(error) {

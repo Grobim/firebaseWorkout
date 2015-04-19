@@ -5,19 +5,17 @@
       .controller('ChangePasswordController', ['$timeout', '$window', '$state', 'Auth', ChangePasswordController]);
 
   function ChangePasswordController($timeout, $window, $state, Auth) {
-    var _this = this;
+    var _this = this,
+        authData = Auth.$getAuth();
 
     _this.changePassword = changePassword;
 
-    var ref = new $window.Firebase('https://boiling-fire-3060.firebaseio.com/users/' + Auth.$getAuth().uid);
-    ref.once('value', function(data) {
-      $timeout(function() {
-        if (!_this.credentials) {
-          _this.credentials = {};
-        }
-        _this.credentials.email = data.val().email;
-      });
-    });
+    (function init() {
+      if (!_this.credentials) {
+        _this.credentials = {};
+      }
+      _this.credentials.email = authData.password.email;
+    })();
 
     function changePassword() {
       _this.dataLoading= true;

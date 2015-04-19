@@ -1,7 +1,8 @@
 (function () {
   'use strict';
 
-  angular.module('grobim.firebaseWorkout.withAngularFire.manageUsers').config(['$stateProvider', fireObjectRoutes]);
+  angular.module('grobim.firebaseWorkout.withAngularFire.manageUsers')
+      .config(['$stateProvider', fireObjectRoutes]);
 
   function fireObjectRoutes($stateProvider) {
 
@@ -12,11 +13,19 @@
         controller: 'ManageUsersController',
         controllerAs: 'mngUsersCtrl'
       })
+
       .state('withAngularFire.changePassword', {
         url: '/changePassword',
         templateUrl: 'app/FirebaseWorkout/WithAngularFire/ManageUsers/changePassword.tpl.html',
         controller: 'ChangePasswordController',
         controllerAs: 'changePwdCtrl'
+      })
+
+      .state('withAngularFire.updateInfos', {
+        url : '/updateInfos',
+        controller : 'UpdateInfosController',
+        controllerAs : 'updateInfosCtrl',
+        templateUrl  : 'app/FirebaseWorkout/WithAngularFire/ManageUsers/updateInfos.tpl.html'
       })
       ;
 

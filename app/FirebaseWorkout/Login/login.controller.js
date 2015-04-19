@@ -17,6 +17,7 @@
         $state.go('home');
       }).catch(function(error) {
         _this.dataLoading = false;
+        _this.password = '';
         console.error('Authentication failed:', error);
       });
     }

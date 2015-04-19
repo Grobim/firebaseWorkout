@@ -3,14 +3,17 @@
     <th>Nickname</th>
     <th>Firstname</th>
     <th>Lastname</th>
-    <th>Email</th>
-    <th>Action</th>
+    <th>Actions</th>
   </tr>
   <tr ng-repeat="user in mngUsersCtrl.users">
     <td>{{user.nickname}}</td>
     <td>{{user.firstname}}</td>
     <td>{{user.lastname}}</td>
-    <td>{{user.email}}</td>
-    <td><button ng-if="mngUsersCtrl.isAuthUser(user)" ng-click="mngUsersCtrl.changePassword()">Change Password</button></td>
+    <td>
+      <div ng-if="mngUsersCtrl.isAuthUser(user)">
+        <button ui-sref="withAngularFire.changePassword">Change Password</button>
+        <button ui-sref="withAngularFire.updateInfos">Update my infos</button>
+      </div>
+    </td>
   </tr>
 </table>

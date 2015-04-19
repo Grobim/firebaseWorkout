@@ -1,0 +1,14 @@
+<h3>My infos</h3>
+<form ng-submit="updateInfosCtrl.updateInfos()">
+  <label for=""></label>
+  <label for="nickname">Nickname : </label>
+  <input type="text" ng-model="updateInfosCtrl.user.nickname" />
+  <br />
+  <label for="firstname">Firstname : </label>
+  <input type="text" ng-model="updateInfosCtrl.user.firstname" />
+  <br />
+  <label for="lastname">Lastname : </label>
+  <input type="text" ng-model="updateInfosCtrl.user.lastname" />
+  <br />
+  <input type="submit" value="Update infos" />
+</form>
